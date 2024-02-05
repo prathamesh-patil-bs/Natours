@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "compile:sass": "node-sass sass/main.scss css/style.css -w",
-    "live": "live-server"
+    "live": "live-server",
+    "start": "concurrently \"npm run compile:sass\" \"npm run live\""
   },
   "keywords": [],
   "author": "",
