@@ -1,0 +1,43 @@
+// Media Query Manager
+/*
+    0 - 600: PHONE
+    600 - 900 : TABLET (PORTRAIT)
+    900 - 1200 : TABLET (LANDSCAPED)
+    [1200 - 1800] IS WHERE OUR NORMAL STYLES APPLIES
+    1800+ : BIG DESKTOP
+
+$breakpoint argument choices: 
+- phone
+- tab-port
+- tab-land
+- big-desktop
+*/
+
+/* 
+  ORDER: Base + Typography > general layout > flex > page layout > components
+*/
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) { // 600px
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) { // 900px
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) { // 1200px
+      @content;
+    }
+  }
+
+  @if $breakpoint == big-desktop { // 1800px
+    @media (min-width: 112.5em) {
+      @content;
+    }
+  }
+}
